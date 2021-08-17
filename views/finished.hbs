@@ -1,0 +1,20 @@
+<div class="valign-wrapper finished-main">
+    <div class="center-align middle">
+        <div id="particles-js"></div>
+        <h1>You've finished the quiz!</h1>
+        <h5>Thank you for participating. Stay tuned for the results.</h5>
+    </div>
+</div>
+
+<script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+</script>
+<script src="/js/particles.min.js"></script>
+<script>
+    setTimeout(() => {
+        document.getElementById("logout").click();
+    }, 3000);
+</script>

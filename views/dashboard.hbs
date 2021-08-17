@@ -1,0 +1,75 @@
+<div class="center-align">
+    <div id="particles-js"></div>
+    <h3>Welcome, {{name}}!</h2>
+        <h5>Let's begin
+    </h3>
+    <h3 id="countdown">Time left:</h1>
+        <h2 id="demo"></h2>
+</div>
+{{#if questions}}
+<form action="/submit" method="POST" id="form">
+    {{#each questions}}
+    <div class="input-field">
+        <div>
+            <label for="{{index}}" class="ques-label">
+                <p class="desc">{{math index "+" 1}}. {{description}}</p>
+            </label>
+        </div>
+        {{#if imgurl}}
+        <div class="ques-img">
+            <img draggable="false" oncontextmenu="return false;" class="img-ques" src="{{imgurl}}" alt="">
+        </div>
+        {{/if}}
+        <input name="{{index}}" class="validate ques-input" type="text" id="{{index}}" placeholder="Enter answer">
+    </div>
+    {{/each}}
+    <div class="center-align">
+        <button type="submit" class="waves-effect waves-light btn submit-button">Submit Your Answers</button>
+    </div>
+</form>
+{{else}}
+<p>No questions!</p>
+{{/if}}
+
+<script>
+
+    let deadline = new Date("apr 10, 2021 10:30:00 GMT+05:30").getTime();
+
+    let x = setInterval(() => {
+
+        let now = new Date().getTime();
+        let t = deadline - now;
+        // let days = Math.floor(t / (1000 * 60 * 60 * 24));
+        let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((t % (1000 * 60)) / 1000);
+        document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s";
+
+        if (t < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "TIME'S UP";
+        }
+    }, 1000);
+
+    let ttl = deadline - new Date().getTime();
+
+    let y = setTimeout(() => {
+        document.getElementById("form").submit();
+    }, ttl);
+
+    window.onload = function () {
+        var labels = document.getElementsByTagName('label');
+        for (var i = 0; i < labels.length; i++) {
+            disableSelection(labels[i]);
+        }
+    };
+    function disableSelection(element) {
+        if (typeof element.onselectstart != 'undefined') {
+            element.onselectstart = function () { return false; };
+        } else if (typeof element.style.MozUserSelect != 'undefined') {
+            element.style.MozUserSelect = 'none';
+        } else {
+            element.onmousedown = function () { return false; };
+        }
+    }
+</script>
+<script src="/js/particles.min.js"></script>

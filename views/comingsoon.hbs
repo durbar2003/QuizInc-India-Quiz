@@ -1,0 +1,39 @@
+<div class="valign-wrapper bgimg">
+    <div class="center-align middle">
+        <h2>QuizInc presents India Quiz</h1>
+            <p id="para">Begins in...</p>
+            <hr class="comsoon">
+            <h2 id="demo">
+    </div>
+</div>
+
+<script>
+    let deadline = new Date("aug 10, 2021 19:59:00 GMT+05:30").getTime();
+
+    let x = setInterval(() => {
+
+        let now = new Date().getTime();
+        let t = deadline - now;
+        let days = Math.floor(t / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((t % (1000 * 60)) / 1000);
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+        if (t < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = `<button type="submit" class="btn submit-button" onClick="history.go(0)">Click here to play!</button>`;
+            document.getElementById("para").innerText = "The time has arrived!"
+        }
+    }, 1000);
+
+    /* function refreshAt(deadline) {
+        let now = new Date().getTime();
+        let timeout = deadline - now;
+        setTimeout(() => {
+            history.go(0);
+        }, timeout);
+    }
+    if (deadline === 0)
+        refreshAt(deadline); */
+</script>
