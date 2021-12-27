@@ -24,12 +24,11 @@
     "mongoose": "^5.9.26",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
-    "passport-google-oauth20": "^2.0.0"
-  },
-  "devDependencies": {
+    "passport-google-oauth20": "^2.0.0",
     "cross-env": "^7.0.2",
     "nodemon": "^2.0.4"
   },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/durbar2003/QuizInc-India-Quiz.git"
