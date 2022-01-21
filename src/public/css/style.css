@@ -19,7 +19,7 @@ i.footer {
 .page-footer-login,
 .page-header,
 .page-header-login {
-  background-color: #e68027;
+  background-color: #5483a0;
 }
 
 @media (max-width: 500px) {
@@ -47,7 +47,7 @@ i.footer {
 }
 
 .divider {
-  background-color: #e87613;
+  background-color: #cbe6e7;
 }
 
 .desc {
@@ -107,7 +107,7 @@ i.footer {
 
 .login-div {
   height: 100%;
-  background-image: url("../img/school_home.jpg");
+  background-image: url("../img/GV_login.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
